@@ -23,4 +23,19 @@ class LiveMIDI
 
 end
 
+if RUBY_PLATFORM.include?('mswin')
+	class LiveMIDI
+		#windows code will go here
+	end
+elsif RUBY_PLATFORM.include?('darwin')
+	class LiveMIDI
+		#mac code will go here
+	end
+elsif RUBY_PLATFORM.include?('linux')
+	class LiveMIDI
+		#linux code will go here
+	end
+else
+	raise "Couldn't find a LiveMIDI implementation for your platform"
+end
 
