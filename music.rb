@@ -10,7 +10,7 @@ class LiveMIDI
 	end
 
 	def note_on(channel, note, velocity=64)
-		message(ON | channel, note, velocity)
+		message(ON | channel, note, velocity)   #sending the three parameters as required by the note_on functionality
 	end
 
 	def note_off(channel, note, velocity=64)
@@ -26,6 +26,11 @@ end
 if RUBY_PLATFORM.include?('mswin')
 	class LiveMIDI
 		#windows code will go here
+		module C
+			extend DL::Importable
+			dlload 'winmm'
+		end
+		
 	end
 elsif RUBY_PLATFORM.include?('darwin')
 	class LiveMIDI
