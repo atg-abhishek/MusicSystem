@@ -29,6 +29,10 @@ if RUBY_PLATFORM.include?('mswin')
 		module C
 			extend DL::Importable
 			dlload 'winmm'
+
+			extern "int midiOutOpen(HMIDIOUT*,int,int,int,int)"
+			extern "int midiOutClose(int)"
+			extern "int midiOutShortMsg(int,int)"
 		end
 		
 	end
