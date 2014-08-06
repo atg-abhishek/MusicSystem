@@ -35,6 +35,10 @@ if RUBY_PLATFORM.include?('mswin')
 			extern "int midiOutShortMsg(int,int)"
 		end
 		
+		def open
+			@device = DL.malloc(DL.sizeof('I'))
+			C.midiOutOpen(@device, -1,0,0,0)
+		end
 	end
 elsif RUBY_PLATFORM.include?('darwin')
 	class LiveMIDI
