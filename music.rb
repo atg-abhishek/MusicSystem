@@ -39,6 +39,11 @@ if RUBY_PLATFORM.include?('mswin')
 			@device = DL.malloc(DL.sizeof('I'))
 			C.midiOutOpen(@device, -1,0,0,0)
 		end
+
+		def close 
+			C.midiOutClose(@device.ptr.to_i)
+		end
+		
 	end
 elsif RUBY_PLATFORM.include?('darwin')
 	class LiveMIDI
