@@ -43,6 +43,11 @@ if RUBY_PLATFORM.include?('mswin')
 		def close 
 			C.midiOutClose(@device.ptr.to_i)
 		end
+
+		def message(one, two-o, three-o)
+			message = one + (two<<8) + (three<<16)
+			C.midiOutShortMsg(@device.ptr.to_i, message)
+		end
 		
 	end
 elsif RUBY_PLATFORM.include?('darwin')
