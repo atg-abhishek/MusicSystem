@@ -23,11 +23,11 @@ class LiveMIDI
 
 end
 
-if RUBY_PLATFORM.include?('mswin')
+if RUBY_PLATFORM.include?('x86_64-cygwin')
 	class LiveMIDI
 		#windows code will go here
 		module C
-			extend DL::Importable
+			extend DL::Importer
 			dlload 'winmm'
 
 			extern "int midiOutOpen(HMIDIOUT*,int,int,int,int)"
@@ -44,7 +44,7 @@ if RUBY_PLATFORM.include?('mswin')
 			C.midiOutClose(@device.ptr.to_i)
 		end
 
-		def message(one, two-o, three-o)
+		def message(one, two=o, three=o)
 			message = one + (two<<8) + (three<<16)
 			C.midiOutShortMsg(@device.ptr.to_i, message)
 		end
