@@ -44,11 +44,21 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 			C.midiOutClose(@device.ptr.to_i)
 		end
 
-		def message(one, two=o, three=o)
+		def message(one, two=0, three=0)
 			message = one + (two<<8) + (three<<16)
 			C.midiOutShortMsg(@device.ptr.to_i, message)
 		end
 		
+		midi = LiveMIDI.new
+		midi.note_on(0,60,100)
+		sleep(1)
+		midi.note_off(0,60)
+		sleep(1)
+		midi.program_change(1,40)
+		midi.note_on(1,60,100)
+		sleep(1)
+		midi.note_off(1,60)
+
 	end
 elsif RUBY_PLATFORM.include?('darwin')
 	class LiveMIDI
