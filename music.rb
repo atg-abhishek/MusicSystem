@@ -47,7 +47,7 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 
 		def message(one, two=0, three=0)
 			message = one + (two<<8) + (three<<16)
-			C.midiOutShortMsg(@device.ptr.to_i, message)
+			C.midiOutShortMsg(@device.ptr, message)
 		end
 		
 		midi = LiveMIDI.new
