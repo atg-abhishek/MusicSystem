@@ -36,12 +36,13 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 		end
 		
 		def open
-			@device = DL.malloc(DL.sizeof('I'))
+			@device = DL.malloc(4)
 			C.midiOutOpen(@device, -1,0,0,0)
 		end
 
 		def close 
 			C.midiOutClose(@device.ptr.to_i)
+			p @device.ptr.to_i
 		end
 
 		def message(one, two=0, three=0)
