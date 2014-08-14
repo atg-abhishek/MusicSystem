@@ -60,6 +60,15 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 		sleep(1)
 		midi.note_off(1,60)
 
+		module CF
+			extend DL::Importer
+			dlload '/System/Library/Framworks/CoreFoundation.framework/Versions/Current/CoreFoundation'
+
+			extern "void * CFStringCreateWithCString (void *, char *, int)"
+		end
+		
+
+
 	end
 elsif RUBY_PLATFORM.include?('darwin')
 	class LiveMIDI
