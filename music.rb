@@ -11,6 +11,8 @@ class LiveMIDI
 
 	def note_on(channel, note, velocity=64)
 		message(ON | channel, note, velocity)   #sending the three parameters as required by the note_on functionality
+
+		#need to figure out how to make the pointers work 
 	end
 
 	def note_off(channel, note, velocity=64)
@@ -42,7 +44,7 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 
 		def close 
 			C.midiOutClose(@device.ptr.to_i)
-			p @device.ptr.to_i
+			p @device.ptr.to_i #message for debugging 
 		end
 
 		def message(one, two=0, three=0)
@@ -66,7 +68,7 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 
 			extern "void * CFStringCreateWithCString (void *, char *, int)"
 		end
-		
+
 
 
 	end
