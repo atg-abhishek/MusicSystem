@@ -1,33 +1,32 @@
 require 'dl/import'
 
-class LiveMIDI
-	ON = 0x90
-	OFF = 0x80
-	PC = 0xC0
-
-	def initialize
-		open
-	end
-
-	def note_on(channel, note, velocity=64)
-		message(ON | channel, note, velocity)   #sending the three parameters as required by the note_on functionality
-
-		#need to figure out how to make the pointers work 
-	end
-
-	def note_off(channel, note, velocity=64)
-		message(OFF | channel, note, velocity)
-	end
-
-	def program_change(channel, preset)
-		message(PC | channel, preset)
-	end
-
-end
-
 if RUBY_PLATFORM.include?('x86_64-cygwin')
 	class LiveMIDI
 		#windows code will go here
+		ON = 0x90
+		OFF = 0x80
+		PC = 0xC0
+
+		def initialize
+			open
+		end
+
+		def note_on(channel, note, velocity=64)
+			message(ON | channel, note, velocity)   #sending the three parameters as required by the note_on functionality
+
+			#need to figure out how to make the pointers work 
+		end
+
+		def note_off(channel, note, velocity=64)
+			message(OFF | channel, note, velocity)
+		end
+
+		def program_change(channel, preset)
+			message(PC | channel, preset)
+		end
+
+
+
 		module C
 			extend DL::Importer
 			dlload 'winmm'
