@@ -37,7 +37,7 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 		end
 		
 		def open
-			@device = DL.malloc(4)
+			@device = DL.malloc(DL.sizeof('I'))
 			C.midiOutOpen(@device, -1,0,0,0)
 		end
 
