@@ -73,6 +73,13 @@ if RUBY_PLATFORM.include?('x86_64-cygwin')
 	end
 elsif RUBY_PLATFORM.include?('darwin')
 	class LiveMIDI
+		module C
+			extend DL::Importer
+			dlload 'System/Library/Framworks/CoreMIDI.framework/Versions/Current/CoreMIDI'
+
+		end
+		
+
 		#mac code will go here
 	end
 elsif RUBY_PLATFORM.include?('linux')
