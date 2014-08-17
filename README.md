@@ -12,3 +12,7 @@ the solution
 The day was spent trying to understand how MIDI interprets musical notes as compared 
 to the way music is composed in real life, also having a few struggles understanding 
 the concept of channels in the context of MIDI
+
+The progress on the development has been slow due to several issues that I've been encountering in terms of making the DL class work in the current environment. 
+There are several methods and functionalities that have either be changed in their implementations or have subtle variations and I'm trying to callibrate that to get the results that I 
+want. 
