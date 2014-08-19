@@ -77,6 +77,8 @@ elsif RUBY_PLATFORM.include?('darwin')
 			extend DL::Importer
 			dlload 'System/Library/Framworks/CoreMIDI.framework/Versions/Current/CoreMIDI'
 
+			#some externs needs to be added here corresponding to the code in windows
+
 		end
 		
 
