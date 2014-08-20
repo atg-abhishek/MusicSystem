@@ -20,3 +20,7 @@ want.
 I am still stuck with the DL Importer issue that I have been trying to 
 troubleshoot, there are not enough examples of the new version that is 
 used now, so will continue looking into it.
+
+So as it turns out I'll have to figure out another alternative to DL 
+because it has been a time sink so far - will be spending some time 
+reading the documentation for corresponding alternatives to DL.
