@@ -16,3 +16,7 @@ the concept of channels in the context of MIDI
 The progress on the development has been slow due to several issues that I've been encountering in terms of making the DL class work in the current environment. 
 There are several methods and functionalities that have either be changed in their implementations or have subtle variations and I'm trying to callibrate that to get the results that I 
 want. 
+
+I am still stuck with the DL Importer issue that I have been trying to 
+troubleshoot, there are not enough examples of the new version that is 
+used now, so will continue looking into it.
